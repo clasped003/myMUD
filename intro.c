@@ -2,6 +2,7 @@
 #include "menu.h"
 #include "quitfuncs.h"
 #include "subfuncs.h"
+#include "namefuncs.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -12,6 +13,7 @@ void intro(){
 		char introSel;
 		
 		system("clear");
+		
 		puts("Welcome to the land of shadows. . . \n");
 		puts("Press 's' + 'Enter' to begin, or 'q' + 'Enter' to quit\n");
 		scanf(" %c", &introSel);

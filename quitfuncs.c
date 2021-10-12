@@ -2,6 +2,7 @@
 #include "menu.h"
 #include "quitfuncs.h"
 #include "subfuncs.h"
+#include "namefuncs.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -36,7 +37,7 @@ void exitPrompt(){
 				 puts("Invalid selection, try again. . .");
 			   sleep(1);
 				 exitPrompt();
-				}	//exitprompt switch
+				}	//switch
 }//exitPrompt
 
 

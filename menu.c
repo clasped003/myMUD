@@ -2,6 +2,7 @@
 #include "menu.h"
 #include "quitfuncs.h"
 #include "subfuncs.h"
+#include "namefuncs.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -13,7 +14,7 @@ void menu(){
  	 char choiceChar;
 		 //Loop for menu		
  	 do{
-     //Menu Function	
+     //Menu
 		 system("clear");	
 	   puts("**/===========================/**");
 	   puts("* */--       M E N U        --/* *");
@@ -28,11 +29,8 @@ void menu(){
 		 scanf(" %c", &choiceChar);						
 		//Pages with corresponding functions	in subfuncs file
 	  switch(choiceChar){
-		case 's':								
-		  system("clear"); 									
-			puts("- Game coming soon -");
-			puts("Returning to Menu. . . ");
-		  sleep(1);										
+		case 's':								 									
+			playerId();	
 			break;																																
 		case 'o':	
 			settings();											
