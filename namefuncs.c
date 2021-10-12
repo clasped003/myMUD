@@ -40,24 +40,26 @@ int readln(char s[], int maxlen){
 		return i;
 }//readln
 
+//Player ID Generation. Does Name and Gender.
 int playerId(){
 		system("clear");
 		char pName[STRLEN];
-		int len_pName;
-		printf("Let the Journey begin.\n\n"); 
+		int len_pName; 
+		
 		//Character naming Function, ties to readln function above
-		//Fixed input bug by adding while loop and moving getchar out of the loop.
-		//Still need to learn how to clear getchar buffer to use recursive call. fflush didnt work.
 		int validName = 0;
 		getchar();
     while(validName == 0){
-		printf("What is your Name (25 Characters max, spaces and numbers ok.): ");		
+		system("clear");
+		printf("Let the Journey begin.\n\n");		
+		printf("What is your Name: (25 Characters max. Name can't begin with a space.)\n");		
 		len_pName = readln(pName, STRLEN);		
-		if(len_pName == 0 || pName[0] ==' ' || pName[0] == '\n'){
-		  puts("\nYou must enter a name, try again.\n");
+		if(len_pName == 0 || pName[0] ==' ' || pName[0] == '\n'){			
+		  puts("\nYou must enter a name correctly, try again. (Resetting. . . )\n");
+			sleep(1);			
 			validName = 0;																
 		}	else{
-		printf("\nHello, %s\n", pName);
+		
 		validName = 1;		
 		}// if else
 		}// while
@@ -78,29 +80,44 @@ int playerId(){
 		}// if else*/
 		
 		//Gender Selection
-		puts("Choose a Gender (M for Male, F for Female, O for Other)");
 		char pGender;
-		getchar();
-		fflush(stdout);
-		if(pGender == 'm'){
-				putchar(pGender);
-				puts("You are Male");
-				sleep(2);	
-				return 1;
-				}else if (pGender == 'f'){
-				puts("You are Female");
-				sleep(2);
-				return 1;					
-		}//if else
+		int validGender = 0;
+		while(validGender == 0){	
+		printf("\nHello, %s!\n", pName);			
+		puts("Please select a gender ('m' for male, 'f' for Female, 'o' for Other):");		
+	  pGender = getchar();
+		getchar(); 
+		system("clear");		
+		if(pGender == 'm' || pGender == 'M'){
+		  //printf("You picked %c \n", pGender);
+		  printf("You are '%s', a 'Male'\n", pName);	
+		  validGender = 1;				
+		  }else if(pGender == 'f' || pGender == 'F'){
+		    //printf("You picked %c \n", pGender);
+		    printf("You are '%s', a 'Female'\n", pName);
+				validGender = 1;				
+		  }else if(pGender == 'o' || pGender == 'O'){
+		    //printf("You picked %c \n", pGender);
+		    printf("You are '%s', an 'Other'\n", pName);
+				validGender = 1;
+			}else{			
+				puts("Invalid Entry");
+				sleep(1);
+				system("clear");				
+				validGender = 0;						
+		  }	// if else	
+		}//while
+		
+		//Enter to Return to Menu. Store this as a separate function source for later.					
 		puts("Please press 'Enter' to return to main menu.");
-		int a;
-		a = getchar();
-		if(a == '\n'){
+		int b;
+		b = getchar();
+		if(b == '\n'){
 			return 1;	
 		}else{
 			 system("clear");	
-			 printf("ERROR: You entered %c \n", a);	
-			 puts("Incorrect entry. \n");
+			 printf("ERROR: You entered %c \n", b);	
+			 puts("Incorrect entry. Returning.\n");
 			 puts("Please press 'Enter' to return to main menu.");			
 			 return 1;		 
 		}// if else
