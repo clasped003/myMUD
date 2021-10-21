@@ -18,9 +18,9 @@ int settings(){
 		 puts("Options page coming soon!");
 		 puts("Press 'Enter' to return to main menu.");
 		 //added 'press enter to return to main menu' prompt using two getchar() functions
-		 getchar();
-		 char a;
-		 a = getchar();
+		 //getchar();
+		
+		 char a = getchar(); 
 		 if(a == '\n'){
 			return 1;	
 		}else{
@@ -33,7 +33,6 @@ int settings(){
 		}// if else
 		  return 1;
 }// Options
-
 int credits(){
 		 system("clear");
 		 puts("**/===============================/**");
@@ -43,7 +42,7 @@ int credits(){
 		 puts("Game design and concept by ZTD Software\n");
 		 puts("Code written by ZTD Software\n");
 		 puts("Press 'Enter' to return to main menu.");
-		 getchar();
+		 //getchar();
 		 char a;
 		 a = getchar();
 		 if (a == '\n'){
@@ -68,7 +67,7 @@ int instructions(){
 		 puts("Your task is to explore the area and learn about your surroundings.");
 		 puts("Wander through the different rooms.\n");
 		 puts("Press 'Enter' to return to main menu.");
-		 getchar();
+		 //getchar();
 		 char a;
 		 a = getchar();
 		if (a == '\n'){

@@ -17,7 +17,7 @@ void quitConfirm(){
 void exitPrompt(){
 		atexit(quitConfirm);
 		char verify;
-		puts("\n Are you sure you want to quit? y/n");
+		puts("\nAre you sure you want to quit? y/n");
 		scanf(" %c", &verify);
 		switch(verify){
 			case 'y':
@@ -27,7 +27,8 @@ void exitPrompt(){
 	      puts("We will be waiting for you to return. . . ");
 	      sleep(2);
 				exit(1);		    
-			case 'n':				     
+			case 'n':
+				 system("clear");			     
 				 puts("\nDeciding to return. . . \n");
 				 puts("Glad to see you've changed your mind.\n");
 				 puts("Returning");
