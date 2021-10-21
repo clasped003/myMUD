@@ -7,12 +7,19 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <ctype.h>
+#include <string.h>
 
 void menu(){
 	 int menuLoop;
 	 menuLoop = 1;
  	 char choiceChar;
-		 //Loop for menu		
+		//sad attempt to clear buffer before menu lol
+		system("clear"); 
+		puts("The die is cast. . .\n ");		
+		puts("--Press enter to start--");
+		getchar();
+		int startch; while (((startch = getchar()) != EOF) && (startch != '\n')) /* void */;
+		//Loop for menu
  	 do{
      //Menu
 		 system("clear");	
@@ -26,7 +33,9 @@ void menu(){
 	   puts("'c' -- Credits\n");
 		 puts("'i' -- Instructions\n");
 		 puts("'q' -- Quit Game\n");				
-		 scanf(" %c", &choiceChar);						
+		 //scanf(" %c", &choiceChar);
+		 	choiceChar = getchar();
+			int ch; while (((ch = getchar()) != EOF) && (ch != '\n')) /* void */;						
 		//Pages with corresponding functions	in subfuncs file
 	  switch(choiceChar){
 		case 's':								 									
