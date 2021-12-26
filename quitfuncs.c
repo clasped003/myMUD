@@ -11,7 +11,7 @@
 void quitConfirm(){
 		system("clear");
 		puts("\n\n\n\n\n");
-		printf("Copyright 2021, ZTD Software");
+		printf("Copyright 2021, ZTD Software\n");
 }//quitConfirm
 
 void exitPrompt(){
