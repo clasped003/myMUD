@@ -9,23 +9,33 @@
 #include <ctype.h>
 
 void intro(){
-		
-		char introSel;
-		
-		system("clear");
-		
-		puts("Welcome to the land of shadows. . . \n");
-		puts("Press 's' + 'Enter' to begin, or 'q' + 'Enter' to quit\n");
-		scanf(" %c", &introSel);
-		
-		if(introSel == 's'){
-			 system("clear");
-			 menu();
-		}else if(introSel == 'q'){
-				exitPrompt();
-				}	else{
-				puts("\n\nIncorrect selection - - Try again");
-				sleep(1);				
-				intro();
-		   }//If statement 		
+    	
+    char introSel;
+	int loopVar = 1;
+    while(loopVar == 1){
+	    system("clear");
+	    puts("Welcome to the land of shadows. . . \n");
+	    puts("Press 's' + 'Enter' to begin, or 'q' + 'Enter' to quit\n");
+	    
+        introSel = getchar();
+        int ch;
+        while(((ch = getchar()) != EOF) && (ch != '\n'));
+	    switch(tolower(introSel))
+        {
+            case 's':
+	        system("clear");
+		    menu();
+            loopVar = 0;
+            break;
+
+	        case 'q':
+	        exitPrompt();
+            continue;
+		    
+            default:
+		    puts("\n\nIncorrect selection - - Try again");
+			sleep(1);				
+			continue;
+		}//If statement 		
+    }//loopVar while
 }//intro
