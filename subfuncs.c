@@ -11,16 +11,16 @@
 /*Notes: Need to figure out how to have this screen pause until someone presses
 enter to return to menu. Then save this file as a template for that type of function*/
 int settings(){
-		 system("clear");	
+	   system("clear");	
 	   puts("**/===============================/**");
 	   puts("* */--       O P T I O N S      --/* *");
 	   puts("**/====                       ====/**\n");
-		 puts("Options page coming soon!");
-		 puts("Press 'Enter' to return to main menu.");
-		 //added 'press enter to return to main menu' prompt using two getchar() functions
-		 //getchar();
+	   puts("Options page coming soon!");
+	   puts("Press 'Enter' to return to main menu.");
 		
-		 char a = getchar(); 
+		 char a = getchar();
+         int ch;
+         while(((ch = getchar()) != EOF) && (ch != '\n'));
 		 if(a == '\n'){
 			return 1;	
 		}else{

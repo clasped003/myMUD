@@ -19,7 +19,7 @@ void exitPrompt(){
 		char verify;
 		puts("\nAre you sure you want to quit? y/n");
 		scanf(" %c", &verify);
-		switch(verify){
+		switch(tolower(verify)){
 			case 'y':
 				system("clear");
 				puts("Too bad, running away so soon?\n\n");
