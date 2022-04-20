@@ -120,6 +120,7 @@ while(classChoiceLoop == 1){
 				if(tolower(uContinue) == 'y'){
 				    puts("You have decided to begin your journey.\n");
 					sleep(1);
+                    menu();
 					confirmLooper = 0;		
 					looper = 1;
 				}else if(tolower(uContinue == 'n')){	
