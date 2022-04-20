@@ -8,7 +8,7 @@
 #include <unistd.h>
 #include <ctype.h>
 
-/*Notes: Need to figure out how to have this screen pause until someone presses
+/*Notes: XNeed to figure out how to have this screen pause until someone presses
 enter to return to menu. Then save this file as a template for that type of function*/
 int settings(){
 	   system("clear");	
@@ -19,17 +19,17 @@ int settings(){
 	   puts("Press 'Enter' to return to main menu.");
 		
 		 char a = getchar();
-         int ch;
-         while(((ch = getchar()) != EOF) && (ch != '\n'));
+         //int ch;
+         //while(((ch = getchar()) != EOF) && (ch != '\n'));
 		 if(a == '\n'){
 			return 1;	
 		}else{
 			 system("clear");	
 			 printf("ERROR: You entered %c \n", a);	
 			 puts("Incorrect entry. \n");
-			 puts("Please press 'Enter' to return to main menu.");
+			 puts("Returning you to main menu. . .");
 			 sleep(1);		
-			 settings();					 
+			 menu();					 
 		}// if else
 		  return 1;
 }// Options
@@ -42,7 +42,6 @@ int credits(){
 		 puts("Game design and concept by ZTD Software\n");
 		 puts("Code written by ZTD Software\n");
 		 puts("Press 'Enter' to return to main menu.");
-		 //getchar();
 		 char a;
 		 a = getchar();
 		 if (a == '\n'){
@@ -51,9 +50,9 @@ int credits(){
 			 system("clear");	
 			 printf("ERROR: You entered %c \n", a);	
 			 puts("Incorrect entry. \n");
-			 puts("Please press 'Enter' to return to main menu.");
+			 puts("Returning you to main menu. . .");
 			 sleep(1);		
-			 settings();					 
+			 menu();					 
 		}// if else
 		  return 1;
 }// Credits
@@ -67,7 +66,6 @@ int instructions(){
 		 puts("Your task is to explore the area and learn about your surroundings.");
 		 puts("Wander through the different rooms.\n");
 		 puts("Press 'Enter' to return to main menu.");
-		 //getchar();
 		 char a;
 		 a = getchar();
 		if (a == '\n'){
@@ -76,9 +74,9 @@ int instructions(){
 		    system("clear");
 			  printf("ERROR: You entered %c \n", a);	
 		  	puts("Incorrect entry. \n");
-			  puts("Please press 'Enter' to return to main menu.");
+			  puts("Returning you to main menu. . .");
 			  sleep(1);		
-			  settings();					 
+			  menu();					 
 		}	// if else 
 	      sleep(2);
 		 return 0;
