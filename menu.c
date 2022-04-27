@@ -2,7 +2,8 @@
 #include "menu.h"
 #include "quitfuncs.h"
 #include "subfuncs.h"
-#include "namefuncs.h"
+//#include "namefuncs.h"
+#include "modularCharSetter/charSetter.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -37,7 +38,7 @@ void menu(){
 		//Pages with corresponding functions in subfuncs file
         switch(tolower(choiceChar)){
             case 's':								 									
-			    playerId();	
+			    charSetter();	
 			    break;							
 		    case 'o':	
 			    settings();											

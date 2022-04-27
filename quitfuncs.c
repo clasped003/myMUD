@@ -2,7 +2,7 @@
 #include "menu.h"
 #include "quitfuncs.h"
 #include "subfuncs.h"
-#include "namefuncs.h"
+#include "modularCharSetter/charSetter.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
