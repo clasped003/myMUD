@@ -1,12 +1,6 @@
 #include <stdio.h>
-//#include <stdlib.h>
-//#include <unistd.h>
-//#include <ctype.h>
 #include "intro.h"
-#include "menu.h"
-//#include "quitfuncs.h"
-//#include "subfuncs.h"
-//#include "namefuncs.h"
+#include "menuAndFunctions/menu.h"
 
 /*Notes
 x-Finish exitprompt .h and .c file, copy from intro.c file and

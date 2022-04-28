@@ -19,7 +19,7 @@ XChange class var to a string variable in struct
 X - But keep the letter choice input. just add a var to pass it to
 XMove character struct to a separate file, link to this file
 -Finish ageSelector func to parse values correctly (possibly w/atoi)
--Create a Makefile for this program
+XCreate a Makefile for this program
 -Clean up prompts to sound more game-ish
 -Create a generalized separate function like fgets to get user input
 - - maybe it gets parsed in another file? maybe in the function?
@@ -37,16 +37,17 @@ for numbers
 void ageSelector();
 void nameSelector();
 void classSelector();
-void genderSelector();
+void genderSelector(char *genderVar);
 
 /*NOTE: using a global struct for now. either make a copy of this struct to 
  * transfer to a file, or find a way to pass the struct to the functions and 
  * return values without overwriting previous struct entries from other funcs.
  */
 
-player playerOne;
 int main(){
     //Var dec & init
+    player playerOne;
+    playerOne.playerGender = 'i';
     int loopVar = 1;
     char choiceVar;
     int ch;
@@ -59,7 +60,7 @@ int main(){
         puts("*********************\n");
 
         //function calls
-        genderSelector();
+        genderSelector(&playerOne.playerGender);
         ageSelector();
         nameSelector();
         classSelector();
@@ -73,20 +74,20 @@ int main(){
         printf("Name:   %s\n", playerOne.playerName);
         printf("Class:  %s\n", playerOne.playerClass);
             puts("\nContinue to next screen?\n");
-            puts("Press 'Y' + Enter to continue,");
-            puts("or press 'N' + Enter to redo your character.\n");
+            puts("Press 'y' + Enter to continue,");
+            puts("or press 'n' + Enter to redo your character.\n");
             choiceVar = getchar();
             while((ch = getchar()) != '\n');
             
-        switch(toupper(choiceVar))
+        switch(tolower(choiceVar))
         {
-            case 'Y':
+            case 'y':
             puts("You have decided to continue.");
             sleep(1);
             loopVar = 0;
             break;
 
-            case 'N':
+            case 'n':
             puts("You have decided to re-do your character. Re-setting . . . ");
             sleep(1);
             continue;
@@ -100,29 +101,33 @@ int main(){
     return 0;
 }
 
-void genderSelector(/*&playerOne.playerGender*/){
+void genderSelector(char *genderVar){
     //Var dec & init
     int loopVar = 1;
     int ch;
+    char genderGetter;
     //Loop & prompt
     while(loopVar){
+
         puts("\nWhat is your character's gender?: ");
-        puts("'M' for Male, 'F' for female, 'O' for other.");
-        playerOne.playerGender = getchar();
+        puts("'m' for Male, 'f' for female, 'o' for other.");
+       
+        genderGetter = getchar();
         while((ch = getchar()) != '\n');
-        switch(toupper(playerOne.playerGender))
+        (char)playerOne.playerGender = genderGetter;
+        switch(tolower(playerOne.playerGender))
         {
-            case 'M':
+            case 'm':
                 printf("You chose: %c.\nYou are a Male.\n", toupper(playerOne.playerGender));
                 loopVar = 0;
                 break;
 
-            case 'F':
+            case 'f':
                 printf("You chose %c.\nYou are a Female.\n", toupper(playerOne.playerGender));
                 loopVar = 0;
                 break;
         
-            case 'O':
+            case 'o':
                 printf("You chose %c.\nYou are an Other.\n", toupper(playerOne.playerGender));
                 loopVar = 0;
                 break;
@@ -182,19 +187,19 @@ void nameSelector(){
         }//for*/
         printf("Your name is: %s\n", playerOne.playerName);
         puts("\nIs the name ok?");
-        puts("If so, press 'Y' + Enter to continue,");
-        puts("or else Press 'N' + Enter to re-write name.");
+        puts("If so, press 'y' + Enter to continue,");
+        puts("or else Press 'n' + Enter to re-write name.");
         choiceVar = getchar();
         while(((ch = getchar()) != EOF) && (ch != '\n'));
 
-        switch(toupper(choiceVar))
+        switch(tolower(choiceVar))
         {
-            case 'Y':
+            case 'y':
             puts("Continuing. . . ");
             loopVar = 0;
             break;
 
-            case 'N':
+            case 'n':
             puts("Restarting. . . ");
             break;
 
@@ -215,25 +220,25 @@ void classSelector(){
     while(loopVar)
     {
         puts("What is your class?: ");
-        puts("'B'for Brute, 'V' for Vandal, 'S' for Stranger.");
+        puts("'b'for Brute, 'v' for Vandal, 's' for Stranger.");
         classGetter = getchar();
         while((ch = getchar()) != '\n');
-        switch(toupper(classGetter))
+        switch(tolower(classGetter))
         {   
-            case 'B':
-                printf("You chose: %c.\nYou are a Brute.\n", toupper(classGetter));
+            case 'b':
+                printf("You chose: %c.\nYou are a Brute.\n", tolower(classGetter));
                 strcpy(playerOne.playerClass, "Brute");
                 loopVar = 0;
                 break;
 
             case 'V':
-                printf("You chose %c.\nYou are a Vandal.\n", toupper(classGetter));
+                printf("You chose %c.\nYou are a Vandal.\n", tolower(classGetter));
                 strcpy(playerOne.playerClass, "Vandal");
                 loopVar = 0;
                 break;
         
-            case 'S':
-                printf("You chose %c.\nYou are a Stranger.\n", toupper(classGetter));
+            case 's':
+                printf("You chose %c.\nYou are a Stranger.\n", tolower(classGetter));
                 strcpy(playerOne.playerClass, "Stranger");
                 loopVar = 0;
                 break;

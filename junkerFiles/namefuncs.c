@@ -1,3 +1,7 @@
+/*NOTE: THIS FILE NO LONGER IN USE!!! JUST USE FOR REFERENCE!! GOAL
+ * FOR THIS FILE WAS ACCOMPLISHED VIA MODULARCHARSETTER FILE AND FUNCTIONS!!*/
+
+
 #include "intro.h"
 #include "menu.h"
 #include "quitfuncs.h"
