@@ -1,7 +1,13 @@
 #_*_Makefile_*_
 
-all : intro.o main.o menuAndFunctions/menu.o modularCharSetter/charSetter.o modularCharSetter/attributeFuncs/ageGetter.o modularCharSetter/attributeFuncs/letterGetter.o modularCharSetter/attributeFuncs/classGetter.o modularCharSetter/attributeFuncs/nameGetter.o menuAndFunctions/quitfuncs.o menuAndFunctions/subfuncs.o
-	clang -Wall intro.c main.c menuAndFunctions/menu.c modularCharSetter/charSetter.c modularCharSetter/attributeFuncs/ageGetter.c modularCharSetter/attributeFuncs/letterGetter.c modularCharSetter/attributeFuncs/classGetter.c modularCharSetter/attributeFuncs/nameGetter.c menuAndFunctions/quitfuncs.c menuAndFunctions/subfuncs.c -o myMud
+all : intro.o main.o menuAndFunctions/menu.o modularCharSetter/charSetter.o modularCharSetter/attributeFuncs/ageGetter.o modularCharSetter/attributeFuncs/letterGetter.o modularCharSetter/attributeFuncs/classGetter.o modularCharSetter/attributeFuncs/nameGetter.o menuAndFunctions/quitfuncs.o menuAndFunctions/subfuncs.o mainGame/mainGame.o
+	clang -Wall intro.c main.c menuAndFunctions/menu.c modularCharSetter/charSetter.c modularCharSetter/attributeFuncs/ageGetter.c modularCharSetter/attributeFuncs/letterGetter.c modularCharSetter/attributeFuncs/classGetter.c modularCharSetter/attributeFuncs/nameGetter.c menuAndFunctions/quitfuncs.c menuAndFunctions/subfuncs.c mainGame/mainGame.c mainGame/parsexec.c -o myMud
+
+parsexec.o: mainGame/parsexec.c
+	clang -Wall -c mainGame/parsexec.c
+
+mainGame.o: mainGame/mainGame.c
+	clang -Wall -c mainGame/mainGame.c
 
 nameGetter.o: modularCharSetter/attributeFuncs/nameGetter.c
 	clang -Wall -c modularCharSetter/attributeFuncs/classGetter.c
